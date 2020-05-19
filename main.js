@@ -23,12 +23,16 @@ let stacks = {
 };
 
 // Start here. What is this function doing?
+//This is logging the arrays/stacks in to the console.
+let moveCounter = 0;
 const printStacks = () => {
   console.log("a: " + stacks.a);
   console.log("b: " + stacks.b);
   console.log("c: " + stacks.c);
 }
-
+const printCounter = () =>{
+  console.log("Number of moves: " + moveCounter++);
+}
 // Next, what do you think this function should do?
 //takes piece of first stack and puts it on second stack
 const movePiece = (startStack, endStack) => { 
@@ -69,12 +73,14 @@ const towersOfHanoi = (startStack, endStack) => {
   if (isLegal(startStack,endStack)) {
     movePiece(startStack,endStack);
     if (checkForWin()==true) {
-      console.log("You have won!");}
-  } else console.log("Invalid Move");
+      console.log("You have won!");
+    }
+  } else console.log("Illegal move, try again");
 }
 
 const getPrompt = () => {
   printStacks();
+  printCounter();
   rl.question('start stack: ', (startStack) => {
     rl.question('end stack: ', (endStack) => {
       towersOfHanoi(startStack, endStack);
