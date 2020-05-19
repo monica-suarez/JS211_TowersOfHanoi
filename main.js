@@ -43,14 +43,14 @@ const movePiece = (startStack, endStack) => {
 // Before you move, should you check if the move it actually allowed? Should 3 be able to be stacked on 2
 //allows piece to go on empty array, then true if piece put on endStack is of lower value than last piece of new array
 const isLegal = (startStack, endStack) => {
-  if (stacks[endStack][stacks[endStack].length - 1] == undefined)
+  if(stacks[endStack][stacks[endStack].length - 1] == undefined)
   {
     return true;
   }
-  if (stacks[startStack][stacks[startStack].length - 1] < stacks[endStack][stacks[endStack].length - 1]) {
+  if(stacks[startStack][stacks[startStack].length - 1] < stacks[endStack][stacks[endStack].length - 1]) {
     return true;
   } 
-  else if (stacks[startStack][stacks[startStack].length - 1] > stacks[endStack][stacks[endStack].length - 1]) {
+  if(stacks[startStack][stacks[startStack].length - 1] > stacks[endStack][stacks[endStack].length - 1]) {
     return false;
   }
 }
@@ -71,9 +71,9 @@ const checkForWin = () => {
 //move the piece. Once it is moved it will check for a win. If the move is not legal it will 
 //tell you the move is invalid. 
 const towersOfHanoi = (startStack, endStack) => {
-  if (isLegal(startStack,endStack)) {
+  if(isLegal(startStack,endStack)) {
     movePiece(startStack,endStack);
-    if (checkForWin()==true) {
+    if(checkForWin()==true) {
       console.log("You have won!");
     }
   } else console.log("Illegal move, try again");
