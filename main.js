@@ -21,15 +21,16 @@ let stacks = {
   b: [],
   c: []
 };
-
-// Start here. What is this function doing?
-//This is logging the arrays/stacks in to the console.
 let moveCounter = 0;
+// Start here. What is this function doing?
+//This is logging the arrays/stacks in to the console. Called at prompt
+
 const printStacks = () => {
   console.log("a: " + stacks.a);
   console.log("b: " + stacks.b);
   console.log("c: " + stacks.c);
 }
+//Also called at prompt. Prints out string and counter
 const printCounter = () =>{
   console.log("Number of moves: " + moveCounter++);
 }
@@ -40,9 +41,9 @@ const movePiece = (startStack, endStack) => {
 }
 
 // Before you move, should you check if the move it actually allowed? Should 3 be able to be stacked on 2
-//allows piece to go on empty array, then true if piece put on endStack is of lower value
+//allows piece to go on empty array, then true if piece put on endStack is of lower value than last piece of new array
 const isLegal = (startStack, endStack) => {
-  if (stacks[endStack][stacks[endStack].length - 1] === undefined)
+  if (stacks[endStack][stacks[endStack].length - 1] == undefined)
   {
     return true;
   }
